@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bathtub Film</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,900,900italic,400italic,700italic' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+    <div id="foundation">
+      <div id="house">
+        <h1>Site Title</h1>
+        <h3>Lab</h3>
+        <nav>
+          <ul>
+            <li><%= link_to "Bath Manager", lab_path, :class=> active_class(lab_path) %></li>
+          </ul>
+        </nav>
+        <div id="bathroom">
+          <%= yield %>
+        </div>
+        <%= link_to "Back to main site", root_path, :class=> "link" %>
+      </div>
+    </div>
+  </body>
+</html>

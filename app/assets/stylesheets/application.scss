@@ -1,0 +1,150 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$red: #E42600;
+$light-red: lighten($red, 20%);
+
+@mixin animate($duration: .1s){		
+	// Animates all properties of an object 					
+	-webkit-transition:
+		all $duration ease-out;
+	-moz-transition: 
+		all $duration ease-out;
+	-o-transition: 
+		all $duration ease-out;
+	transition: 
+		all $duration ease-out;
+}
+
+html, body{
+
+}
+body{
+	font-family: 'Roboto', sans-serif;
+}
+h1{
+	font-size: 3rem;
+	margin-bottom: 0;
+}
+h2{
+	font-size: 2rem;
+	font-weight: normal;
+}
+h3{
+	font-size: 1rem;
+	margin: 0;
+}
+p{
+	font-size: 1.2rem;
+	line-height: 180%;
+	padding: 0 3.5rem 0 3.5rem;
+	& a{
+		color: $red;
+		@include animate;
+		&:hover{
+			color: $light-red;
+		}
+	}
+}
+p.feature{
+	font-size: 2rem;
+}
+a{
+	text-decoration: none;
+}
+#foundation{
+	float: left;
+	width: 100%;
+}
+#house{
+	margin: 0px auto;
+	width: 100%;
+	max-width: 1200px;
+}
+#bathroom{
+	float: left;
+	clear: left;
+	width: 100%;
+	padding: 1rem;
+	box-sizing: border-box;
+}
+nav{
+	padding: 1rem 0 0 0;
+	float: left;
+	ul{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		float: left;
+		li{
+			margin: 0 2rem 0 0;
+			padding: 0;
+			float: left;
+			display: inline-block;
+			a{
+				padding: 0.5rem 1rem 0.5rem 1rem;
+				font-size: 1.2rem;
+				color: $red;
+				float: left;
+				border-radius: 2px;
+				@include animate;
+				&:hover,
+				&.active{
+					color: $light-red;
+					background: #222;
+				}
+			}
+		}
+	}
+}
+
+
+.link{
+	color: $red;
+	@include animate;
+	float: left;
+	clear: left;
+	&:hover{
+		color: $light-red;
+	}
+}
+#bath{
+	width: 100%;
+	float: left;
+	display: block;
+	padding: 1rem 2rem 2rem 2rem;
+	box-sizing: border-box;
+	color: #eee;
+	&>div{
+		width: 100%;
+		background: #222;
+		padding: 1.2rem 1.2rem 1.2rem 1.2rem;
+		box-sizing: border-box;
+	}
+	&>div:nth-child(2n){
+		background: #333;
+	}
+	&>div:first-child{
+		border-radius: 4px 4px 0 0;
+	}
+	&>div:last-child{
+		border-radius: 0 0 4px 4px;
+	}
+}
+
+form{
+	margin: 1rem 0 1rem 0;
+}
