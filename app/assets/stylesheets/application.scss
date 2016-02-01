@@ -15,6 +15,8 @@
  */
 
 $red: #E42600;
+$green: #47A747;
+
 $light-red: lighten($red, 20%);
 
 @mixin animate($duration: .1s){		
@@ -28,12 +30,28 @@ $light-red: lighten($red, 20%);
 	transition: 
 		all $duration ease-out;
 }
+@mixin animate-font-size($duration: .1s){		
+	// Animates all properties of an object 					
+	-webkit-transition:
+		font-size $duration linear;
+	-moz-transition: 
+		font-size $duration ease-out;
+	-o-transition: 
+		font-size $duration ease-out;
+	transition: 
+		font-size $duration ease-out;
+}
 
 html, body{
-
+	@include animate-font-size;
 }
 body{
 	font-family: 'Roboto', sans-serif;
+}
+@media(max-width: 800px){
+	html{
+		font-size: 90%;
+	}
 }
 h1{
 	font-size: 3rem;
@@ -47,6 +65,14 @@ h3{
 	font-size: 1rem;
 	margin: 0;
 }
+@media(max-width: 800px){
+	h1{
+	}
+	h2{
+	}
+	h3{
+	}
+}
 p{
 	font-size: 1.2rem;
 	line-height: 180%;
@@ -58,6 +84,12 @@ p{
 			color: $light-red;
 		}
 	}
+}
+form{
+
+}
+input{
+	outline: none;
 }
 p.feature{
 	font-size: 2rem;
@@ -78,7 +110,7 @@ a{
 	float: left;
 	clear: left;
 	width: 100%;
-	padding: 1rem;
+	padding: 1rem 2rem 2rem 2rem;
 	box-sizing: border-box;
 }
 nav{
@@ -110,7 +142,16 @@ nav{
 		}
 	}
 }
-
+@media(max-width: 800px){
+	nav{
+		ul{
+			li{
+				a{
+				}
+			}
+		}
+	}
+}
 
 .link{
 	color: $red;
@@ -125,7 +166,6 @@ nav{
 	width: 100%;
 	float: left;
 	display: block;
-	padding: 1rem 2rem 2rem 2rem;
 	box-sizing: border-box;
 	color: #eee;
 	&>div{
@@ -133,6 +173,35 @@ nav{
 		background: #222;
 		padding: 1.2rem 1.2rem 1.2rem 1.2rem;
 		box-sizing: border-box;
+		float: left;
+		&>div{
+			float: left;
+			margin: 0 1rem 0 0;
+		}
+		&>div.job-updated{
+			float: right;
+			font-size: 0.7rem;
+			opacity: 0.5;
+		}
+		&>form.button_to{
+			float: right;
+			margin: 0;
+			padding: 0;
+			&>input{
+				float: right;
+				border: none;
+				padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+				border-radius: 3px;
+				cursor: pointer;
+				color: #FFCCCC;
+				background: #DD4141;
+				@include animate;
+				&:hover{
+					color: #fff;
+					background: lighten(#DD4141, 10%);
+				}
+			}
+		}
 	}
 	&>div:nth-child(2n){
 		background: #333;
@@ -145,6 +214,28 @@ nav{
 	}
 }
 
-form{
+form#new_job{
 	margin: 1rem 0 1rem 0;
+	width: 100%;
+	float: left;
+	&>input{
+		border: none;
+		padding: 1rem;
+		border-radius: 3px;
+		font-size: 1rem;
+	}
+	&>input[type=text]{
+		background: #ddd;
+		color: #222;
+	}
+	&>input[type=submit]{
+		background: $green;
+		color: lighten($green, 70%);
+		cursor: pointer;
+		@include animate;
+		&:hover{
+			background: lighten($green, 10%);
+			color: #fff;
+		}
+	}
 }

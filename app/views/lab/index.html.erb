@@ -1,8 +1,9 @@
 <h2>Queue</h2>
 <div id="bath">
+	<!-- Initial Queue render -->
 	<%= render @jobs %>
-	<%= form_for Job.new, remote: true, authenticity_token: true do |f| %>
-		<%= f.text_field :name %>
-		<%= f.submit %>
-	<% end %>
 </div>
+<%= form_for Job.new, remote: true, authenticity_token: true do |f| %>
+	<%= f.text_field :name, :placeholder => "Name" %>
+	<%= f.submit %>
+<% end %>
