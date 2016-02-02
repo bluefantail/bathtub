@@ -1,4 +1,8 @@
 <h2>Queue</h2>
 <div id="bath">
-	<%= render @jobs %>
+	<!-- Initial Queue render -->
+	<div class="no-jobs hide">There are no Jobs here! Have one to <a href="/bath">submit</a> ?</div>
+	<% if !@jobs.blank? %>
+		<%= render @jobs %>
+	<% end %>
 </div>

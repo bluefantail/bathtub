@@ -1,9 +1,12 @@
 <h2>Queue</h2>
 <div id="bath">
 	<!-- Initial Queue render -->
-	<%= render @jobs %>
+	<div class="no-jobs hide">There are no Jobs here! Have one to <a href="/bath">submit</a> ?</div>
+	<% if !@jobs.blank? %>
+		<%= render @jobs %>
+	<% end %>
 </div>
 <%= form_for Job.new, remote: true, authenticity_token: true do |f| %>
-	<%= f.text_field :name, :placeholder => "Name" %>
+	<%= f.text_field :name, :placeholder => "Name for Job" %>
 	<%= f.submit %>
 <% end %>

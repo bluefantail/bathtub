@@ -18,6 +18,7 @@ $red: #E42600;
 $green: #47A747;
 
 $light-red: lighten($red, 20%);
+$light-green: lighten($green, 10%);
 
 @mixin animate($duration: .1s){		
 	// Animates all properties of an object 					
@@ -168,20 +169,41 @@ nav{
 	display: block;
 	box-sizing: border-box;
 	color: #eee;
+	border-radius: 4px;
+	overflow: hidden;
 	&>div{
 		width: 100%;
 		background: #222;
 		padding: 1.2rem 1.2rem 1.2rem 1.2rem;
 		box-sizing: border-box;
 		float: left;
+		&>a{
+			color: $green;
+			@include animate;
+			&:hover{
+				color: $light-green;
+			}
+		}
 		&>div{
 			float: left;
-			margin: 0 1rem 0 0;
+			padding: 0 1rem 0 0;
+			box-sizing: border-box;
+		}
+		&>div.job-name{
+			width: 50%;
+			font-size: 1.5rem;
 		}
 		&>div.job-updated{
-			float: right;
 			font-size: 0.7rem;
 			opacity: 0.5;
+			width: 50%;
+			text-align: right;
+			padding: 0;
+		}
+		&>div.job-state{
+			width: 15%;
+			font-size: 0.9rem;
+			clear: left;
 		}
 		&>form.button_to{
 			float: right;
@@ -206,12 +228,6 @@ nav{
 	&>div:nth-child(2n){
 		background: #333;
 	}
-	&>div:first-child{
-		border-radius: 4px 4px 0 0;
-	}
-	&>div:last-child{
-		border-radius: 0 0 4px 4px;
-	}
 }
 
 form#new_job{
@@ -234,8 +250,12 @@ form#new_job{
 		cursor: pointer;
 		@include animate;
 		&:hover{
-			background: lighten($green, 10%);
+			background: $light-green;
 			color: #fff;
 		}
 	}
+}
+
+.hide{
+	display: none;
 }

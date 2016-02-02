@@ -1,14 +1,17 @@
 <div id="job_<%=  job.id %>">
-	<div>
+	<div class="job-name">
 		<%= job.name %>
+	</div>
+	<div class="job-updated">
+		Last Updated :
+		<%= job.updated_at.time.to_formatted_s(:short)   %>
+	</div>
+	<div class="job-state">
+		<%= job.state ? job.state : "Processing Job" %>
 	</div>
 	<!-- Temp hack to disable delete buttons on main view -->
 	<!-- These are mostly for testing -->
-	<% if current_page? '/lab' %> 
+	<% if controller_name == 'lab' or controller_name == 'application' %> 
 	<%= button_to "Delete", {controller: :jobs, action: 'destroy', id: job.id }, method: :delete, remote: true %> 
 	<% end %>
-	<div class="job-updated">
-		Last Updated<br/>
-		<%= job.updated_at.time.to_formatted_s(:short)   %>
-	</div>
 </div>
