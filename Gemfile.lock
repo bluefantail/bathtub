@@ -107,6 +107,8 @@ GEM
     multi_json (1.11.2)
     nokogiri (1.6.7.2-x64-mingw32)
       mini_portile2 (~> 2.0.0.rc2)
+    paloma (4.2.1)
+      jquery-rails
     puma (2.16.0)
     rack (2.0.0.alpha)
       json
@@ -179,9 +181,9 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  paloma
   puma
   rails (>= 5.0.0.beta1.1, < 5.1)
-  redis
   sass
   spring
   sqlite3

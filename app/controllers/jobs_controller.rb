@@ -11,6 +11,9 @@ class JobsController < ApplicationController
     ActionCable.server.broadcast "bath_channel", { remove_job: job_id }
   end
 
+  def update
+  end
+
   private
    	def job_params
   		params.require(:job).permit(:name)

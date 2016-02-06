@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 	get '/bath' => 'pages#bath'
 
 	get '/lab' => 'lab#index'
+	get '/lab/tasks' => 'lab#tasks'
+	get '/lab/settings' => 'lab#settings'
 
 	resource :jobs
   

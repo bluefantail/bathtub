@@ -14,3 +14,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// Useful Functions
+function no_jobs_check() {
+	// Displays a no jobs message if there are no jobs in the queue
+	var bath = document.getElementById("bath");
+	var noJobsElement = document.querySelector('.no-jobs');
+	var jobCount = bath.children.length - 1;
+	if (!jobCount) {
+		noJobsElement.setAttribute('class', 'no-jobs');
+	}else{
+		noJobsElement.setAttribute('class', 'no-jobs hide');
+	}
+}

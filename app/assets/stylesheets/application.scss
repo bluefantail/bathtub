@@ -16,9 +16,11 @@
 
 $red: #E42600;
 $green: #47A747;
+$blue: #248ED8;
 
 $light-red: lighten($red, 20%);
 $light-green: lighten($green, 10%);
+$light-blue: lighten($blue, 10%);
 
 @mixin animate($duration: .1s){		
 	// Animates all properties of an object 					
@@ -114,26 +116,38 @@ a{
 	padding: 1rem 2rem 2rem 2rem;
 	box-sizing: border-box;
 }
+nav,
+.filter-nav{
+	ul{
+		margin: 0;
+		padding: 0;
+		float: left;
+		list-style: none;
+		li{
+			margin: 0;
+			padding: 0;
+			float: left;
+			display: inline-block;
+			@include animate;
+
+			a{
+				@include animate;
+			}
+		}
+	}
+}
 nav{
 	padding: 1rem 0 0 0;
 	float: left;
 	ul{
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		float: left;
 		li{
 			margin: 0 2rem 0 0;
-			padding: 0;
-			float: left;
-			display: inline-block;
 			a{
 				padding: 0.5rem 1rem 0.5rem 1rem;
 				font-size: 1.2rem;
 				color: $red;
 				float: left;
 				border-radius: 2px;
-				@include animate;
 				&:hover,
 				&.active{
 					color: $light-red;
@@ -143,17 +157,26 @@ nav{
 		}
 	}
 }
-@media(max-width: 800px){
-	nav{
-		ul{
-			li{
-				a{
-				}
+.filter-nav{
+	float: left;
+	padding: 1rem 0 1rem 0;
+	ul{
+		li{
+			cursor: pointer;
+			font-size: 0.9rem;
+			border-radius: 2px;
+			margin: 0 1rem 0 0;
+			padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+			&:hover{
+				background: lighten($light-red, 32%);
+			}
+			&.active{
+				background: $light-red;
+				color: #fff;
 			}
 		}
 	}
 }
-
 .link{
 	color: $red;
 	@include animate;
@@ -178,10 +201,10 @@ nav{
 		box-sizing: border-box;
 		float: left;
 		&>a{
-			color: $green;
+			color: $blue;
 			@include animate;
 			&:hover{
-				color: $light-green;
+				color: $light-blue;
 			}
 		}
 		&>div{
@@ -207,7 +230,7 @@ nav{
 		}
 		&>form.button_to{
 			float: right;
-			margin: 0;
+			margin: 0 0 0 1rem;
 			padding: 0;
 			&>input{
 				float: right;
@@ -221,6 +244,22 @@ nav{
 				&:hover{
 					color: #fff;
 					background: lighten(#DD4141, 10%);
+				}
+			}
+			&>input.complete{
+				background: $green;
+				color: lighten($green, 35%);
+				&:hover{
+					background: $light-green;
+					color: #fff;
+				}
+			}
+			&>input.ready{
+				background: $blue;
+				color: lighten($blue, 35%);
+				&:hover{
+					background: $light-blue;
+					color: #fff;
 				}
 			}
 		}
@@ -245,12 +284,12 @@ form#new_job{
 		color: #222;
 	}
 	&>input[type=submit]{
-		background: $green;
-		color: lighten($green, 70%);
+		background: $blue;
+		color: lighten($blue, 70%);
 		cursor: pointer;
 		@include animate;
 		&:hover{
-			background: $light-green;
+			background: $light-blue;
 			color: #fff;
 		}
 	}
