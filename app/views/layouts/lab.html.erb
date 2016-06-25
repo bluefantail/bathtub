@@ -30,7 +30,10 @@
           <%= yield %>
         </div>
         <%= link_to "Back to main site", root_path, :class=> "link" %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
       </div>
     </div>
+    <%= link_to("Logout", destroy_user_session_path, :method => :delete) %>
   </body>
 </html>
