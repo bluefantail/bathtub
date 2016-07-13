@@ -13,8 +13,8 @@
 	<!-- These are mostly for testing -->
 
 	<% if current_page?(controller: 'lab', action: 'index') || controller_name == 'application' %> 
-	<%= button_to "Delete", {controller: :jobs, action: 'destroy', id: job.id }, method: :delete, remote: true %>
-	<%= button_to "Complete", {controller: 'jobs', action: 'update', remote: true}, {class: 'complete', disabled: true} %>
-	<%= button_to "Ready", {controller: 'jobs', action: 'update', remote: true}, {class: 'ready', disabled: true} %>
+	<%= link_to "Delete", {controller: :jobs, action: 'destroy', id: job.id }, method: :delete, remote: true %>
+	<%= link_to "Complete", {controller: 'jobs', action: 'update', remote: true}, {class: 'complete', disabled: true} %>
+	<%= link_to "Ready", {controller: 'jobs', action: 'update', remote: true}, {class: 'ready', disabled: true} %>
 	<% end %>
 </div>

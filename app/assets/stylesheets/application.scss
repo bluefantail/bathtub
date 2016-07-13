@@ -228,41 +228,38 @@ nav{
 			font-size: 0.9rem;
 			clear: left;
 		}
-		&>form.button_to{
+		&>a{
 			float: right;
-			margin: 0 0 0 1rem;
-			padding: 0;
-			&>input{
-				float: right;
-				border: none;
-				padding: 0.4rem 0.6rem 0.4rem 0.6rem;
-				border-radius: 3px;
-				cursor: pointer;
-				color: #FFCCCC;
-				background: #DD4141;
-				@include animate;
-				&:hover{
-					color: #fff;
-					background: lighten(#DD4141, 10%);
-				}
-			}
-			&>input.complete{
-				background: $green;
-				color: lighten($green, 35%);
-				&:hover{
-					background: $light-green;
-					color: #fff;
-				}
-			}
-			&>input.ready{
-				background: $blue;
-				color: lighten($blue, 35%);
-				&:hover{
-					background: $light-blue;
-					color: #fff;
-				}
+			border: none;
+			padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+			border-radius: 3px;
+			cursor: pointer;
+			color: #FFCCCC;
+			background: #DD4141;
+			margin-left: 1rem;
+			@include animate;
+			&:hover{
+				color: #fff;
+				background: lighten(#DD4141, 10%);
 			}
 		}
+		&>a.complete{
+			background: $green;
+			color: lighten($green, 35%);
+			&:hover{
+				background: $light-green;
+				color: #fff;
+			}
+		}
+		&>a.ready{
+			background: $blue;
+			color: lighten($blue, 35%);
+			&:hover{
+				background: $light-blue;
+				color: #fff;
+			}
+		}
+		
 	}
 	&>div:nth-child(2n){
 		background: #333;
